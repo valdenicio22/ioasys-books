@@ -6,20 +6,28 @@ type CardBookProps = {
 }
 
 const CardBook = ({ book }: CardBookProps) => {
+  console.log(book)
   return (
     <S.Wrapper>
       <S.ImgContainer>
-        <img src={book.imageUrl} alt={book.title} />
+        {book.imageUrl ? (
+          <img src={book.imageUrl} alt={book.title} />
+        ) : (
+          <img src="/img/bookImgPlaceholder.svg" alt="Imagem não carregou" />
+        )}
       </S.ImgContainer>
       <S.BookInfo>
         <S.BookTitleAndAuthor>
           <S.BookTitle>{book.title}</S.BookTitle>
-          <S.Author>{book.authors}</S.Author>
+          {book.authors.length < 1 && <S.Author>{book.authors}</S.Author>}
+          {book.authors.length > 1 && (
+            <S.Author>{`${book.authors[0]}, ${book.authors[1]}`} </S.Author>
+          )}
         </S.BookTitleAndAuthor>
         <S.BookDetails>
-          <S.Detail>{book.pageCount}</S.Detail>
-          <S.Detail>{book.published}</S.Detail>
-          <S.Detail>Publicado {book.publisher}</S.Detail>
+          <S.Detail>{book.pageCount} páginas</S.Detail>
+          <S.Detail>Editora {book.publisher.split(' ')[0]}</S.Detail>
+          <S.Detail>Publicado em {book.published}</S.Detail>
         </S.BookDetails>
       </S.BookInfo>
     </S.Wrapper>

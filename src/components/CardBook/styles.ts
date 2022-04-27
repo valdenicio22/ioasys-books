@@ -28,25 +28,26 @@ export const BookInfo = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 2.5rem;
 `
-export const BookTitleAndAuthor = styled.div``
+export const BookTitleAndAuthor = styled.div`
+  height: 7rem;
+  overflow: hidden;
+`
+
 export const BookTitle = styled.p`
   font-weight: ${({ theme }) => theme.font.weight.medium};
-  line-height: 2rem;
   font-size: ${({ theme }) => theme.font.sizes.small};
 `
+
 export const Author = styled.p`
   color: ${({ theme }) => theme.colors.lightPink};
-  line-height: 2rem;
+  font-size: ${({ theme }) => theme.font.sizes.xsmall};
 `
 export const BookDetails = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  line-height: 2rem;
-  gap: 0.5rem;
 `
 export const Detail = styled.span`
   color: ${({ theme }) => theme.colors.darkGray};
