@@ -16,14 +16,11 @@ export const Wrapper = styled.div`
 `
 
 export const ImgContainer = styled.div`
-  //width: fit-content;
-  //img {
-  //  width: 8.1rem;
-  //height: 12.2rem;
-  //}
-  width: 8.1rem;
-  height: 12.2rem;
-  background-color: red;
+  width: fit-content;
+  img {
+    width: 8.1rem;
+    height: 12.2rem;
+  }
 `
 
 export const BookInfo = styled.div`

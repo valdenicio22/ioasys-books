@@ -1,18 +1,25 @@
+import { Book } from 'types/types'
 import * as S from './styles'
 
-const CardBook = () => {
+type CardBookProps = {
+  book: Book
+}
+
+const CardBook = ({ book }: CardBookProps) => {
   return (
     <S.Wrapper>
-      <S.ImgContainer>IMG</S.ImgContainer>
+      <S.ImgContainer>
+        <img src={book.imageUrl} alt={book.title} />
+      </S.ImgContainer>
       <S.BookInfo>
         <S.BookTitleAndAuthor>
-          <S.BookTitle>Crossing the Chasm</S.BookTitle>
-          <S.Author>Geoffrey A. Moore</S.Author>
+          <S.BookTitle>{book.title}</S.BookTitle>
+          <S.Author>{book.authors}</S.Author>
         </S.BookTitleAndAuthor>
         <S.BookDetails>
-          <S.Detail>150 páginas</S.Detail>
-          <S.Detail>Editora Loyola</S.Detail>
-          <S.Detail>Publicado em 2020</S.Detail>
+          <S.Detail>{book.pageCount}</S.Detail>
+          <S.Detail>{book.published}</S.Detail>
+          <S.Detail>Publicado {book.publisher}</S.Detail>
         </S.BookDetails>
       </S.BookInfo>
     </S.Wrapper>
