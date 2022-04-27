@@ -3,7 +3,9 @@ import { TextFieldProps } from '.'
 
 type WrapperProps = Pick<TextFieldProps, 'fullWidth' | 'size'>
 
-export const LabelContainer = styled.div``
+export const LabelContainer = styled.div`
+  width: 100%;
+`
 
 export const Label = styled.label`
   ${({ theme }) => css`
@@ -26,7 +28,6 @@ export const Input = styled.input`
     width: 100%;
     color: ${theme.colors.white};
 
-    margin-top: 0.5rem;
     border: none;
     background: transparent;
     outline: none;

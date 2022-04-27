@@ -5,9 +5,22 @@ import * as S from './styles'
 const LoginPage = () => {
   return (
     <S.Wrapper>
-      <Logo color="black" />
-      <TextField placeholder="books@ioasys.com.br" />
-      <Button>Entrar</Button>
+      <S.Form>
+        <S.LogoContainer>
+          <Logo />
+        </S.LogoContainer>
+        <S.TextFieldsContainer>
+          <TextField
+            label="Email"
+            labelFor="email"
+            placeholder="books@ioasys.com.br"
+          />
+          <TextField label="Senha" type="senha" placeholder="********" />
+          <S.ButtonContainer>
+            <Button>Entrar</Button>
+          </S.ButtonContainer>
+        </S.TextFieldsContainer>
+      </S.Form>
     </S.Wrapper>
   )
 }
