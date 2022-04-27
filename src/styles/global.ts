@@ -20,7 +20,6 @@ const GlobalStyles = createGlobalStyle`
       font-size: 62.5%; //10px - 1rem
     }
     body {
-      font-size: ${theme.font.sizes.medium};
       -webkit-font-smoothing: antialiased;
     }
     body,
@@ -29,6 +28,7 @@ const GlobalStyles = createGlobalStyle`
     button {
       font-family: ${theme.font.family};
       font-weight: ${theme.font.weight.regular};
+      font-size: ${theme.font.sizes.medium};
     }
     h1,
     h2,

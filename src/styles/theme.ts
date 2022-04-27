@@ -1,7 +1,7 @@
 export default {
   border: {
     radius: {
-      medium: '0.4rem',
+      small: '0.4rem',
       large: '4.4rem'
     }
   },
@@ -30,6 +30,6 @@ export default {
   },
   containers: {
     desktop: '113.6rem', // 1366 - 115*2 = 1136px
-    mobile: '28.8rem' //320px - 16*2
+    mobile: '28.8rem' //320px - 16*2 = 288px
   }
 } as const
