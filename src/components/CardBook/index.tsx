@@ -1,18 +1,33 @@
+import { Book } from 'types/types'
 import * as S from './styles'
 
-const CardBook = () => {
+type CardBookProps = {
+  book: Book
+}
+
+const CardBook = ({ book }: CardBookProps) => {
+  console.log(book)
   return (
     <S.Wrapper>
-      <S.ImgContainer>IMG</S.ImgContainer>
+      <S.ImgContainer>
+        {book.imageUrl ? (
+          <img src={book.imageUrl} alt={book.title} />
+        ) : (
+          <img src="/img/bookImgPlaceholder.svg" alt="Imagem não carregou" />
+        )}
+      </S.ImgContainer>
       <S.BookInfo>
         <S.BookTitleAndAuthor>
-          <S.BookTitle>Crossing the Chasm</S.BookTitle>
-          <S.Author>Geoffrey A. Moore</S.Author>
+          <S.BookTitle>{book.title}</S.BookTitle>
+          {book.authors.length < 1 && <S.Author>{book.authors}</S.Author>}
+          {book.authors.length > 1 && (
+            <S.Author>{`${book.authors[0]}, ${book.authors[1]}`} </S.Author>
+          )}
         </S.BookTitleAndAuthor>
         <S.BookDetails>
-          <S.Detail>150 páginas</S.Detail>
-          <S.Detail>Editora Loyola</S.Detail>
-          <S.Detail>Publicado em 2020</S.Detail>
+          <S.Detail>{book.pageCount} páginas</S.Detail>
+          <S.Detail>Editora {book.publisher.split(' ')[0]}</S.Detail>
+          <S.Detail>Publicado em {book.published}</S.Detail>
         </S.BookDetails>
       </S.BookInfo>
     </S.Wrapper>

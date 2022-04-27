@@ -9,4 +9,9 @@ export const HomeContainer = styled.div`
   margin: 0 auto;
 `
 
-export const CardsList = styled.div``
+export const CardsList = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(27.2rem, 1fr));
+  gap: 1.6rem;
+`
