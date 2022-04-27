@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -7,17 +7,38 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html {
-    font-size: 62.5%;
+  button{
+    cursor: pointer;
+  }
+  [disabled]{
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 
-  html, body, #__next {
-    height: 100%;
-  }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-  }
+  ${({ theme }) => css`
+    html {
+      font-size: 62.5%; //10px - 1rem
+    }
+    body {
+      font-size: ${theme.font.sizes.medium};
+      -webkit-font-smoothing: antialiased;
+    }
+    body,
+    input,
+    textarea,
+    button {
+      font-family: ${theme.font.family};
+      font-weight: ${theme.font.weight.regular};
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong {
+      font-weight: ${theme.font.weight.medium};
+    }
+  `}
 `
-
 export default GlobalStyles
