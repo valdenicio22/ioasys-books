@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background: no-repeat center/cover url('img/loginPageBackgroundImg.svg');
+  background: no-repeat center/cover url('img/landingBgImg.svg');
 
   position: relative;
 `
