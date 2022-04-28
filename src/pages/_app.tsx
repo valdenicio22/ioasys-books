@@ -12,8 +12,7 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <title>Ioasys Books</title>
-        <link rel="shortcut icon" href="/img/icon-512.png" />
-        <link rel="apple-touch-icon" href="/img/icon-512.png" />
+
         <link
           href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500&display=swap"
           rel="stylesheet"
