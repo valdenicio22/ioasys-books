@@ -12,3 +12,11 @@ export type Book = {
   published: number
   id: string
 }
+
+export type User = {
+  name: string
+  email: string
+  birthdate?: string
+  gender?: string
+  id: string
+}
