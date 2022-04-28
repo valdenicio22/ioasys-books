@@ -11,9 +11,10 @@ export default function Home() {
   useEffect(() => {
     api
       .get<{ data: Book[] }>('/books?page=1&amount=25')
-      .then((responde) => setBooks(responde.data.data))
+      .then((response) => setBooks(response.data.data))
   }, [])
 
+  console.log(books)
   return (
     <S.Wrapper>
       <S.HomeContainer>

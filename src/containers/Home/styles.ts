@@ -15,4 +15,8 @@ export const CardsList = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(27.2rem, 1fr));
   grid-template-rows: repeat(3, 1fr);
   gap: 1.6rem;
+
+  a {
+    text-decoration: none;
+  }
 `
