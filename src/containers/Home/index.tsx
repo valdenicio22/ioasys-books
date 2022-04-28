@@ -14,7 +14,6 @@ export default function Home() {
       .then((response) => setBooks(response.data.data))
   }, [])
 
-  console.log(books)
   return (
     <S.Wrapper>
       <S.HomeContainer>

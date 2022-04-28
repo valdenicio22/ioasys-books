@@ -6,7 +6,6 @@ type CardBookProps = {
 }
 
 const CardBook = ({ book }: CardBookProps) => {
-  console.log(book)
   return (
     <S.Wrapper>
       <S.ImgContainer>
