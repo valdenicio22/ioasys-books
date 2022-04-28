@@ -1,19 +1,19 @@
 import Logo from 'components/Logo'
 import LogoutIcon from 'components/LogoutIcon'
-import { useRouter } from 'next/router'
+import { useAuth } from 'context/AuthContext'
 import * as S from './styles'
 
 const Header = () => {
-  const router = useRouter()
+  const { signOut, user } = useAuth()
   return (
     <S.Wrapper>
       <S.HeaderContainer>
         <Logo color="black" />
         <S.WelcomeAndLogout>
           <S.Welcome>
-            Bem vindo, <S.UserName>Guilherme!</S.UserName>
+            Bem vindo, <S.UserName>{user?.name}!</S.UserName>
           </S.Welcome>
-          <S.LogoutContainer type="button" onClick={() => router.push('/')}>
+          <S.LogoutContainer type="button" onClick={signOut}>
             <LogoutIcon />
           </S.LogoutContainer>
         </S.WelcomeAndLogout>
