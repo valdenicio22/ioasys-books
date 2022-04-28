@@ -4,6 +4,7 @@ import theme from 'styles/theme'
 import Head from 'next/head'
 
 import GlobalStyles from 'styles/global'
+import { AuthProvider } from 'context/AuthContext'
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -18,8 +19,10 @@ function App({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
       </Head>
-      <GlobalStyles />
-      <Component {...pageProps} />
+      <AuthProvider>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </AuthProvider>
     </ThemeProvider>
   )
 }
