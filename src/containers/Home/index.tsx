@@ -1,28 +1,34 @@
 import CardBook from 'components/CardBook'
 import Header from 'components/Header'
 import { useEffect, useState } from 'react'
-import { api } from 'service/api'
+import { api } from '../../service/api'
 import * as S from './styles'
 import { Book } from '../../types/types'
+import Link from 'next/link'
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([])
   useEffect(() => {
     api
-      .get('/books?page=1&amount=25')
+      .get<{ data: Book[] }>('/books?page=1&amount=25')
       .then((response) => setBooks(response.data.data))
   }, [])
 
+  console.log(books)
   return (
     <S.Wrapper>
       <S.HomeContainer>
         <Header />
         <S.CardsList>
-          {books ? (
-            books.map((book) => <CardBook book={book} key={book.id} />)
-          ) : (
-            <p>Loading</p>
-          )}
+          {!books && <p>Loading</p>}
+          {books &&
+            books.map((book) => (
+              <Link href={`/home/${book.id}`} key={book.id} passHref>
+                <a>
+                  <CardBook book={book} />
+                </a>
+              </Link>
+            ))}
         </S.CardsList>
       </S.HomeContainer>
     </S.Wrapper>

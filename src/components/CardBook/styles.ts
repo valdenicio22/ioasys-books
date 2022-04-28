@@ -37,6 +37,7 @@ export const BookTitleAndAuthor = styled.div`
 export const BookTitle = styled.p`
   font-weight: ${({ theme }) => theme.font.weight.medium};
   font-size: ${({ theme }) => theme.font.sizes.small};
+  color: ${({ theme }) => theme.colors.black};
 `
 
 export const Author = styled.p`
