@@ -9,11 +9,10 @@ const CardBook = ({ book }: CardBookProps) => {
   return (
     <S.Wrapper>
       <S.ImgContainer>
-        {book.imageUrl ? (
-          <img src={book.imageUrl} alt={book.title} />
-        ) : (
-          <img src="/img/bookImgPlaceholder.svg" alt="Imagem não carregou" />
-        )}
+        <img
+          src={book.imageUrl ? book.imageUrl : '/img/bookImgPlaceholder.svg'}
+          alt={book.title}
+        />
       </S.ImgContainer>
       <S.BookInfo>
         <S.BookTitleAndAuthor>

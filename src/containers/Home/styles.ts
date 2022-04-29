@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  background: no-repeat url('img/homeBgImg.svg');
+  background-size: cover;
 `
 export const HomeContainer = styled.div`
   max-width: ${({ theme }) => theme.containers.desktop};
