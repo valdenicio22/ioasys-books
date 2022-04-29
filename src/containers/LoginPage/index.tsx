@@ -1,5 +1,6 @@
 import Button from 'components/Button'
 import Error from 'components/Error'
+import CircularProgress from '@mui/material/CircularProgress'
 import Logo from 'components/Logo'
 import { TextField } from 'components/Textfield'
 import { useAuth } from 'context/AuthContext'
@@ -7,7 +8,7 @@ import { MouseEvent, useEffect, useState } from 'react'
 
 import * as S from './styles'
 const LoginPage = () => {
-  const { signIn, error, setError } = useAuth()
+  const { signIn, error, setError, isLoading } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -46,7 +47,11 @@ const LoginPage = () => {
           />
           <S.ButtonContainer>
             <Button type="submit" onClick={handleSigninClick}>
-              Entrar
+              {isLoading ? (
+                <CircularProgress color="inherit" size={20} />
+              ) : (
+                'Entrar'
+              )}
             </Button>
           </S.ButtonContainer>
         </S.TextFieldsContainer>
