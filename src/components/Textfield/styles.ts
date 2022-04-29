@@ -31,10 +31,6 @@ export const Input = styled.input`
     border: none;
     background: transparent;
     outline: none;
-
-    ::placeholder {
-      color: ${theme.colors.white};
-    }
   `}
 `
 

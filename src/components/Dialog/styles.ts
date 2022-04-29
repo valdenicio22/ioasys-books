@@ -6,15 +6,18 @@ export const StyledModal = styled(Modal)`
     width: 76.9rem;
     height: 60.8rem;
     background-color: #f0f2f5;
-    padding: 6rem 2.5rem;
-    border-radius: 2.2rem;
+    box-shadow: 0px 16px 80px rgba(0, 0, 0, 0.32);
+    border-radius: 0.4rem;
   }
 `
 
 export const CloseBtn = styled.button`
+  width: 3.5rem;
+  height: 3.5rem;
+
   position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
+  right: 2rem;
+  top: 2rem;
 
   ${({ theme }) => css`
     background-color: ${theme.colors.white};
