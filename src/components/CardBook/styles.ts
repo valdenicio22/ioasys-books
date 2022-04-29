@@ -32,6 +32,7 @@ export const BookInfo = styled.div`
 export const BookTitleAndAuthor = styled.div`
   height: 7rem;
   overflow: hidden;
+  text-align: left;
 `
 
 export const BookTitle = styled.p`
