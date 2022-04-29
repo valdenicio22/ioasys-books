@@ -27,10 +27,7 @@ export default function Home() {
     <S.Wrapper>
       {isSelectedCard && (
         <Dialog isModalOpen={!!isSelectedCard} onCloseModal={handleCloseModal}>
-          <BookDetails
-            isSelectedCard={isSelectedCard}
-            setIsSelectedCard={setIsSelectedCard}
-          />
+          <BookDetails isSelectedCard={isSelectedCard} />
         </Dialog>
       )}
 
