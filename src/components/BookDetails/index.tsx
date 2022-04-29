@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { api } from 'service/api'
 import { Book } from 'types/types'
 import * as S from './styles'
+import CircularProgress from '@mui/material/CircularProgress'
 
 type BookDetailsProps = {
   isSelectedCard: Book['id']
@@ -22,7 +23,9 @@ const BookDetails = ({ isSelectedCard }: BookDetailsProps) => {
   return (
     <>
       {!bookDetails ? (
-        <p>Carregando...</p>
+        <S.LoadingContainer>
+          <CircularProgress color="secondary" size={100} />
+        </S.LoadingContainer>
       ) : (
         <S.Wrapper>
           <S.BookImage>
