@@ -1,6 +1,8 @@
 import {
   createContext,
+  Dispatch,
   ReactNode,
+  SetStateAction,
   useContext,
   useEffect,
   useState
@@ -23,6 +25,12 @@ type AuthContextData = {
   signOut: () => void
   user?: User
   isAuthenticated: boolean
+  isLoading: boolean
+  setIsLoading: Dispatch<SetStateAction<boolean>>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  error?: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setError: Dispatch<any>
 }
 
 type AuthProviderProps = {
@@ -41,6 +49,9 @@ const AuthContext = createContext({} as AuthContextData)
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User>()
+  const [isLoading, setIsLoading] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [error, setError] = useState<any>()
   const isAuthenticated = !!user
 
   const signOut = () => {
@@ -62,6 +73,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, [])
 
   const signIn = async ({ email, password }: SignInCredentials) => {
+    setIsLoading(true)
     try {
       const response = await api.post<User>('auth/sign-in', {
         email,
@@ -91,14 +103,28 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       ] = `Bearer ${response.headers.authorization}`
       setUser(response.data)
       Router.push('/home')
-    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       console.log({ err })
+      setError(err.message)
+    } finally {
+      setIsLoading(false)
     }
   }
 
   return (
     <AuthContext.Provider
-      value={{ signIn, setUser, signOut, isAuthenticated, user }}
+      value={{
+        signIn,
+        setUser,
+        signOut,
+        isAuthenticated,
+        user,
+        error,
+        setError,
+        isLoading,
+        setIsLoading
+      }}
     >
       {children}
     </AuthContext.Provider>

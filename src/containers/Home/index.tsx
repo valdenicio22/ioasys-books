@@ -7,6 +7,7 @@ import { Book } from '../../types/types'
 import { Dialog } from '../../components/Dialog'
 import BookDetails from 'components/BookDetails'
 import { ChevronLeft, ChevronRight } from '@styled-icons/evil'
+import CircularProgress from '@mui/material/CircularProgress'
 
 export default function Home() {
   const [books, setBooks] = useState<Book[]>([])
@@ -32,48 +33,59 @@ export default function Home() {
   const handleCloseModal = () => setIsSelectedCard('')
 
   return (
-    <S.Wrapper>
-      {isSelectedCard && (
-        <Dialog isModalOpen={!!isSelectedCard} onCloseModal={handleCloseModal}>
-          <BookDetails isSelectedCard={isSelectedCard} />
-        </Dialog>
-      )}
+    <>
+      {books.length === 0 ? (
+        <S.LoadingContainer>
+          <CircularProgress color="secondary" size={100} />
+        </S.LoadingContainer>
+      ) : (
+        <S.Wrapper>
+          {isSelectedCard && (
+            <Dialog
+              isModalOpen={!!isSelectedCard}
+              onCloseModal={handleCloseModal}
+            >
+              <BookDetails isSelectedCard={isSelectedCard} />
+            </Dialog>
+          )}
 
-      <S.HomeContainer>
-        <Header />
-        <S.CardsList>
-          {!books && <p>Loading</p>}
-          {books &&
-            books.map((book) => (
-              <S.CardButton
-                key={book.id}
-                onClick={() => setIsSelectedCard(book.id)}
-              >
-                <CardBook book={book} />
-              </S.CardButton>
-            ))}
-        </S.CardsList>
-        <S.ButtonsPagination>
-          <S.PageInfo>
-            Página <S.PageNumber>{currentPage}</S.PageNumber> de{' '}
-            <S.PageNumber>{totalPages}</S.PageNumber>
-          </S.PageInfo>
-          <S.ButtonsContainer>
-            <S.PaginationBtn
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage((prev) => prev - 1)}
-            >
-              <ChevronRight width={25} height={25} />
-            </S.PaginationBtn>
-            <S.PaginationBtn
-              disabled={currentPage === totalPages}
-              onClick={() => setCurrentPage((prev) => prev + 1)}
-            >
-              <ChevronLeft width={25} height={25} />
-            </S.PaginationBtn>
-          </S.ButtonsContainer>
-        </S.ButtonsPagination>
-      </S.HomeContainer>
-    </S.Wrapper>
+          <S.HomeContainer>
+            <Header />
+            <S.CardsList>
+              {!books && <p>Loading</p>}
+              {books &&
+                books.map((book) => (
+                  <S.CardButton
+                    key={book.id}
+                    onClick={() => setIsSelectedCard(book.id)}
+                  >
+                    <CardBook book={book} />
+                  </S.CardButton>
+                ))}
+            </S.CardsList>
+            <S.ButtonsPagination>
+              <S.PageInfo>
+                Página <S.PageNumber>{currentPage}</S.PageNumber> de{' '}
+                <S.PageNumber>{totalPages}</S.PageNumber>
+              </S.PageInfo>
+              <S.ButtonsContainer>
+                <S.PaginationBtn
+                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage((prev) => prev - 1)}
+                >
+                  <ChevronRight width={25} height={25} />
+                </S.PaginationBtn>
+                <S.PaginationBtn
+                  disabled={currentPage === totalPages}
+                  onClick={() => setCurrentPage((prev) => prev + 1)}
+                >
+                  <ChevronLeft width={25} height={25} />
+                </S.PaginationBtn>
+              </S.ButtonsContainer>
+            </S.ButtonsPagination>
+          </S.HomeContainer>
+        </S.Wrapper>
+      )}
+    </>
   )
 }

@@ -46,3 +46,6 @@ export const ButtonContainer = styled.div`
   bottom: 1.25rem;
   right: 1.25rem;
 `
+export const ErrorContainer = styled.div`
+  margin-top: 2.4rem;
+`

@@ -1,12 +1,14 @@
 import Button from 'components/Button'
+import Error from 'components/Error'
+import CircularProgress from '@mui/material/CircularProgress'
 import Logo from 'components/Logo'
 import { TextField } from 'components/Textfield'
 import { useAuth } from 'context/AuthContext'
-import { MouseEvent, useState } from 'react'
+import { MouseEvent, useEffect, useState } from 'react'
 
 import * as S from './styles'
 const LoginPage = () => {
-  const { signIn } = useAuth()
+  const { signIn, error, setError, isLoading } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -14,6 +16,13 @@ const LoginPage = () => {
     e.preventDefault()
     await signIn({ email, password })
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setError('')
+    }, 3000)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error])
 
   return (
     <S.Wrapper>
@@ -38,10 +47,19 @@ const LoginPage = () => {
           />
           <S.ButtonContainer>
             <Button type="submit" onClick={handleSigninClick}>
-              Entrar
+              {isLoading ? (
+                <CircularProgress color="inherit" size={20} />
+              ) : (
+                'Entrar'
+              )}
             </Button>
           </S.ButtonContainer>
         </S.TextFieldsContainer>
+        {error && (
+          <S.ErrorContainer>
+            <Error />{' '}
+          </S.ErrorContainer>
+        )}
       </S.Form>
     </S.Wrapper>
   )
