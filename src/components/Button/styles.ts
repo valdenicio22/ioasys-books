@@ -11,6 +11,8 @@ const wrapperModifiers = {
 
 export const Wrapper = styled.button<Props>`
   ${({ theme, fullWidth }) => css`
+    width: 8.5rem;
+    height: 3.6rem;
     outline: none;
     border: none;
     background-color: ${theme.colors.white};
