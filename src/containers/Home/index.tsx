@@ -59,19 +59,17 @@ export default function Home() {
             <S.PageNumber>{totalPages}</S.PageNumber>
           </S.PageInfo>
           <S.ButtonsContainer>
-            <S.PaginationBtn disabled={currentPage === 1}>
-              <ChevronRight
-                width={25}
-                height={25}
-                onClick={() => setCurrentPage((prev) => prev - 1)}
-              />
+            <S.PaginationBtn
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => prev - 1)}
+            >
+              <ChevronRight width={25} height={25} />
             </S.PaginationBtn>
-            <S.PaginationBtn disabled={currentPage === totalPages}>
-              <ChevronLeft
-                width={25}
-                height={25}
-                onClick={() => setCurrentPage((prev) => prev + 1)}
-              />
+            <S.PaginationBtn
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage((prev) => prev + 1)}
+            >
+              <ChevronLeft width={25} height={25} />
             </S.PaginationBtn>
           </S.ButtonsContainer>
         </S.ButtonsPagination>

@@ -10,10 +10,9 @@ export const Wrapper = styled.div`
   gap: 4.8rem;
 `
 export const BookImage = styled.div`
-  width: fit-content;
+  max-width: 34.9rem;
+  max-height: 51.29rem;
   img {
-    max-width: 34.9rem;
-    max-height: 51.29rem;
     width: 100%;
     height: 100%;
   }

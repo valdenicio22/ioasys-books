@@ -18,6 +18,7 @@ const BookDetails = ({ isSelectedCard }: BookDetailsProps) => {
       console.log(error)
     }
   }, [isSelectedCard])
+  console.log(bookDetails)
   return (
     <>
       {!bookDetails ? (
@@ -25,7 +26,14 @@ const BookDetails = ({ isSelectedCard }: BookDetailsProps) => {
       ) : (
         <S.Wrapper>
           <S.BookImage>
-            <img src={bookDetails?.imageUrl} alt={bookDetails?.title} />
+            <img
+              src={
+                bookDetails?.imageUrl
+                  ? bookDetails?.imageUrl
+                  : '/img/bookImgPlaceholder.svg'
+              }
+              alt={bookDetails?.title}
+            />
           </S.BookImage>
           <S.BookDetailsContainer>
             <S.TitleAndAuthors>
