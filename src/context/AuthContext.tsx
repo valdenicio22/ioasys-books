@@ -1,5 +1,6 @@
 import {
   createContext,
+  Dispatch,
   ReactNode,
   useContext,
   useEffect,
@@ -22,6 +23,10 @@ type AuthContextData = {
   setUser: (arg: User) => void
   signOut: () => void
   user?: User
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  error?: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setError: Dispatch<any>
   isAuthenticated: boolean
 }
 
@@ -41,6 +46,8 @@ const AuthContext = createContext({} as AuthContextData)
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User>()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [error, setError] = useState<any>()
   const isAuthenticated = !!user
 
   const signOut = () => {
@@ -91,14 +98,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       ] = `Bearer ${response.headers.authorization}`
       setUser(response.data)
       Router.push('/home')
-    } catch (err) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       console.log({ err })
+      setError(err.message)
     }
   }
 
   return (
     <AuthContext.Provider
-      value={{ signIn, setUser, signOut, isAuthenticated, user }}
+      value={{
+        signIn,
+        setUser,
+        signOut,
+        isAuthenticated,
+        user,
+        error,
+        setError
+      }}
     >
       {children}
     </AuthContext.Provider>
