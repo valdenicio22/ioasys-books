@@ -1,27 +1,22 @@
 import { AppProps } from 'next/app'
-import { ThemeProvider } from 'styled-components'
-import theme from 'styles/theme'
 import Head from 'next/head'
+import { ThemeProvider } from 'styled-components'
 
 import GlobalStyles from 'styles/global'
-import { AuthProvider } from 'context/AuthContext'
+import theme from 'styles/theme'
 
 function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <title>Ioasys Books</title>
-
-        <link
-          href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500&display=swap"
-          rel="stylesheet"
+        <title>Next - Boilerplate</title>
+        <meta
+          name="description"
+          content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
         />
       </Head>
-      <AuthProvider>
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </AuthProvider>
+      <GlobalStyles />
+      <Component {...pageProps} />
     </ThemeProvider>
   )
 }
