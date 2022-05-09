@@ -50,9 +50,9 @@ export default function Home() {
           )}
 
           <S.HomeContainer>
-            <Header />
+            <Header setCurrentPage={setCurrentPage} />
             <S.CardsList>
-              {!books && <p>Loading</p>}
+              {!books && <CircularProgress color="inherit" size={20} />}
               {books &&
                 books.map((book) => (
                   <S.CardButton
