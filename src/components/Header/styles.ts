@@ -14,6 +14,13 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
 `
 
+export const LogoContainer = styled.div`
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`
+
 export const WelcomeAndLogout = styled.div`
   display: flex;
   align-items: center;
@@ -36,6 +43,7 @@ export const LogoutContainer = styled.button`
   outline: none;
   border: none;
   background: transparent;
+
   transition: filter 0.2s;
   &:hover {
     filter: brightness(0.8);
