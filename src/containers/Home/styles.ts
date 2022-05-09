@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const LoadingContainer = styled.div`
   width: 100vw;
@@ -18,6 +19,12 @@ export const HomeContainer = styled.div`
   max-width: ${({ theme }) => theme.containers.desktop};
   width: 100%;
   margin: 0 auto;
+
+  ${media.lessThan('small')`
+    width: 100%;
+    margin: 0;
+    padding: 0 1.6rem;
+  `}
 `
 
 export const CardsList = styled.div`
@@ -27,6 +34,13 @@ export const CardsList = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(27.2rem, 1fr));
   grid-template-rows: repeat(3, 1fr);
   gap: 1.6rem;
+
+  ${media.lessThan('small')`
+    max-height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  `}
 `
 
 export const CardButton = styled.button`
@@ -43,6 +57,13 @@ export const ButtonsPagination = styled.div`
   gap: 1.6rem;
 
   margin-top: 1.6rem;
+
+  ${media.lessThan('small')`
+    justify-content: center;
+    background-color: inherit;
+
+    padding: 1.6rem 0;
+  `}
 `
 
 export const PageInfo = styled.div`

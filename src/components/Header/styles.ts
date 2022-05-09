@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.header`
   width: 100%;
@@ -33,6 +34,10 @@ export const Welcome = styled.p`
   font-weight: ${({ theme }) => theme.font.weight.regular};
   line-height: 1.6rem;
   padding-bottom: 0.4rem;
+
+  ${media.lessThan('small')`
+    display: none;
+  `}
 `
 
 export const UserName = styled.strong`
