@@ -1,22 +1,19 @@
 import styled, { css } from 'styled-components'
-import { TextFieldProps } from '.'
-
-type WrapperProps = Pick<TextFieldProps, 'fullWidth' | 'size'>
+import media from 'styled-media-query'
 
 export const LabelContainer = styled.div`
-  width: 100%;
+  width: fit-content;
 `
 
 export const Label = styled.label`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.medium};
+    font-size: ${theme.font.sizes.xsmall};
     color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
   `}
 `
 
 export const InputWrapper = styled.div`
-  width: 100%;
+  width: fit-content;
 
   &:focus-within {
     border-color: #2072ac;
@@ -34,30 +31,22 @@ export const Input = styled.input`
   `}
 `
 
-const wrapperModifiers = {
-  fullWidth: () => css`
-    width: 100%;
-  `,
-  smallSize: () => css`
-    width: 28.8rem;
-  `
-}
-
-export const Wrapper = styled.div<WrapperProps>`
-  ${({ fullWidth, theme, size }) => css`
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
     width: 36.8rem;
     height: 6rem;
+
+    ${media.lessThan('small')`
+      width: 28.8rem;
+    `}
+
     background: rgba(0, 0, 0, 0.32);
-    backdrop-filter: blur(2px);
-    padding: 0.8rem 1.6rem;
+    padding: 0.4rem 1.6rem;
     border-radius: ${theme.border.radius.small};
 
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-
-    ${fullWidth && wrapperModifiers.fullWidth()}
-    ${size === 'small' && wrapperModifiers.smallSize()}
   `}
 `

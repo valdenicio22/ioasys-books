@@ -9,16 +9,14 @@ import * as S from './styles'
 export type TextFieldProps = {
   label?: string
   labelFor?: string
-  fullWidth?: boolean
-  size?: 'small'
 } & InputHTMLAttributes<HTMLInputElement>
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, TextFieldProps> = (
-  { label, labelFor = '', size, fullWidth = false, ...props }: TextFieldProps,
+  { label, labelFor = '', ...props }: TextFieldProps,
   ref
 ) => {
   return (
-    <S.Wrapper fullWidth={fullWidth} size={size}>
+    <S.Wrapper>
       <S.LabelContainer>
         {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
       </S.LabelContainer>
