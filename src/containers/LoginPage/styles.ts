@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -20,6 +21,16 @@ export const Form = styled.form`
   position: absolute;
   top: 27.4rem;
   left: 11.5rem;
+
+  ${media.lessThan('small')`
+    width: 28.8rem;
+    height: 22.4rem;
+
+    position: absolute;
+    top: 21rem;
+    left: 1.6rem;
+
+  `}
 `
 
 export const LogoContainer = styled.div`
