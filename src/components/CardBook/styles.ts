@@ -1,8 +1,13 @@
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.div`
   width: 27.2rem;
   height: 16rem;
+
+  ${media.lessThan('small')`
+    width: 100%;
+  `}
 
   padding: 2rem 1.6rem;
   background-color: ${({ theme }) => theme.colors.white};

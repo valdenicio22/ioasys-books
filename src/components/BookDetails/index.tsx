@@ -19,7 +19,6 @@ const BookDetails = ({ isSelectedCard }: BookDetailsProps) => {
       console.log(error)
     }
   }, [isSelectedCard])
-  console.log(bookDetails)
   return (
     <>
       {!bookDetails ? (

@@ -14,6 +14,7 @@ const LoginPage = () => {
 
   const handleSigninClick = async (e: MouseEvent) => {
     e.preventDefault()
+    if (!email && !password) return
     await signIn({ email, password })
   }
 
@@ -57,7 +58,7 @@ const LoginPage = () => {
         </S.TextFieldsContainer>
         {error && (
           <S.ErrorContainer>
-            <Error />{' '}
+            <Error>Email e/ou senha incorretos.</Error>
           </S.ErrorContainer>
         )}
       </S.Form>

@@ -1,7 +1,11 @@
 import * as S from './styles'
 
-const Error = () => {
-  return <S.Wrapper>Email e/ou senha incorretos.</S.Wrapper>
+type ErrorProps = {
+  children: string
+}
+
+const Error = ({ children }: ErrorProps) => {
+  return <S.Wrapper>{children}</S.Wrapper>
 }
 
 export default Error

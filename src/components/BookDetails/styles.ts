@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const LoadingContainer = styled.div`
   width: 100%;
@@ -11,24 +12,42 @@ export const LoadingContainer = styled.div`
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  padding: 4.8rem;
 
   display: flex;
   align-items: center;
   gap: 4.8rem;
+
+  ${media.lessThan('small')`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+  `}
 `
 export const BookImage = styled.div`
-  max-width: 34.9rem;
-  max-height: 51.29rem;
+  width: 34.9rem;
+  height: 51.29rem;
+
+  ${media.lessThan('small')`
+    max-width: 100%;
+    max-height: 35.1rem;
+    margin-bottom: 2.4rem;
+  `}
   img {
     width: 100%;
     height: 100%;
+    filter: drop-shadow(0px 11.9008px 17.8512px rgba(0, 0, 0, 0.3));
   }
 `
 export const BookDetailsContainer = styled.div`
-  max-width: 27.6rem;
-  width: 100%;
+  width: 27.6rem;
   height: 100%;
+
+  ${media.lessThan('small')`
+    max-width: 100%;
+  `}
 `
 
 export const TitleAndAuthors = styled.div`
