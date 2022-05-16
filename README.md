@@ -25,8 +25,7 @@ Users should be able to:
 - Navigate between pages to see more books
 - Logout
 
-### Screenshot![desktop]()
-
+### Screenshot!
 
 <table>
   <tr>
