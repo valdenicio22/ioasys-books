@@ -1,4 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components'
+import media from 'styled-media-query'
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -50,6 +51,10 @@ const GlobalStyles = createGlobalStyle`
       display: flex;
       align-items: center;
       justify-content: center;
+
+      ${media.lessThan('small')`
+        padding: 6.4rem 1.6rem 1.6rem;
+      `}
     }
 `
 export default GlobalStyles
