@@ -14,12 +14,14 @@ This is my solution to the Ioasys Books Challenge
 - [Author](#author)
 
 ## Overview
+Pre-register user: desafio@ioasys.com.br<br /> 
+Password: 12341234
 
 ### The challenge
 
 Users should be able to:
 
-- Login with user access already registered
+- Login with user already registered
 - See all books from the API on the homepage
 - Click on a book card to see more detailed information on a separate modal
 - Navigate between pages to see more books
